@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Development of a Tic-Tac-Toe Game with Arduino & Python</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: #fff;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: #f8f9fa;
+            padding: 40px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .back-btn {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .back-btn:hover {
+            color: #2980b9;
+        }
+
+        .project-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .description {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #2c3e50;
+            margin-bottom: 40px;
+        }
+
+        .tech-stack {
+            margin-bottom: 30px;
+        }
+
+        .tech-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-tag {
+            background: #1abc9c;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .download-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .download-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .download-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .download-btn {
+            background: #27ae60;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .download-btn:hover {
+            background: #219a52;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+        }
+
+        .github-btn {
+            background: #333;
+        }
+
+        .github-btn:hover {
+            background: #2c3e50;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .project-title {
+                font-size: 24px;
+            }
+
+            .project-meta {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .download-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-btn">← Back to Projects</a>
+            <h1 class="project-title">Development of a Tic-Tac-Toe Game with Arduino & Python</h1>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <span>📅</span>
+                    <span>2023.03 - 2023.04</span>
+                </div>
+                <div class="meta-item">
+                    <span>👥</span>
+                    <span>Individual Project</span>
+                </div>
+                <div class="meta-item">
+                    <span>🎯</span>
+                    <span>Programming Exercise</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="description">
+                <p>Arduino와 Python을 연동하여 물리적인 인터페이스와 소프트웨어가 결합된 틱택토 게임을 개발한 프로젝트입니다.</p>
+                
+                <p>Arduino에는 3x3 버튼 매트릭스와 LED 디스플레이를 연결하여 게임보드를 구현하고, Python에서는 게임 로직과 AI 알고리즘을 담당합니다. 시리얼 통신을 통해 하드웨어와 소프트웨어가 실시간으로 데이터를 주고받으며, 사용자는 물리적인 버튼을 눌러 게임을 진행할 수 있습니다.</p>
+                
+                <p>AI는 미니맥스 알고리즘을 구현하여 최적의 수를 계산하며, 난이도 조절 기능을 통해 초보자부터 고급자까지 즐길 수 있도록 했습니다.</p>
+            </div>
+
+            <div class="tech-stack">
+                <div class="tech-title">사용 기술</div>
+                <div class="tech-tags">
+                    <span class="tech-tag">Arduino</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Serial Communication</span>
+                    <span class="tech-tag">Minimax Algorithm</span>
+                    <span class="tech-tag">LED Matrix</span>
+                    <span class="tech-tag">Pygame</span>
+                </div>
+            </div>
+
+            <div class="download-section">
+                <div class="download-title">프로젝트 문서 및 코드</div>
+                <div class="download-links">
+                    <a href="https://drive.google.com/file/d/YOUR_DOCUMENT_ID/view" class="download-btn" target="_blank">
+                        📄 프로젝트 보고서
+                    </a>
+                    <a href="https://github.com/m1nwoooo/tictactoe-arduino" class="download-btn github-btn" target="_blank">
+                        💻 GitHub 코드
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

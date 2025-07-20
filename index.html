@@ -4,273 +4,354 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>m1nwoooo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --sidebar-bg: #ffffff;
+            --card-bg: #ffffff;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --accent-color: #007bff;
+            --border-color: #dee2e6;
+            --shadow-color: rgba(0, 0, 0, 0.05);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #fff;
+            color: var(--text-primary);
+            background-color: var(--bg-color);
         }
 
         .container {
             display: flex;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            min-height: 100vh;
         }
 
         .sidebar {
-            width: 300px;
-            padding: 60px 40px;
-            background: #fafafa;
-            border-right: 1px solid #eee;
+            width: 320px;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            padding: 40px;
+            background-color: var(--sidebar-bg);
+            border-right: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
             align-items: center;
+            text-align: center;
         }
 
-        /* --- 수정된 프로필 이미지 스타일 --- */
         .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%; /* 이미지를 원형으로 만듭니다 */
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
             background-image: url('https://i.namu.wiki/i/qQsgrBztJ0TjeCfCblystFPLffgM4uaBS3XWwEkwdYcSADnbTD-Mt9aw77wG5u8QwpwvY_qVdjCVEpZp2IwANg.webp');
-            background-size: cover; /* 이미지가 영역을 꽉 채우도록 합니다 */
-            background-position: center; /* 이미지가 중앙에 오도록 합니다 */
-            background-repeat: no-repeat; /* 이미지가 반복되지 않도록 합니다 */
+            background-size: cover;
+            background-position: center;
             margin-bottom: 20px;
+            border: 5px solid var(--sidebar-bg);
+            box-shadow: 0 8px 24px var(--shadow-color);
         }
 
         .profile-name {
             font-size: 24px;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 10px;
-            text-align: center;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
         }
 
         .profile-desc {
             font-size: 14px;
-            color: #7f8c8d;
-            margin-bottom: 30px;
-            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
         }
 
         .profile-info {
-            font-size: 13px;
-            color: #666;
-            line-height: 1.8;
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-align: left;
             width: 100%;
+            margin-bottom: 24px;
         }
 
-        .profile-info div {
-            margin-bottom: 8px;
+        .profile-info-item {
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
+            gap: 12px;
+        }
+        
+        .profile-info-item a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
 
-        .profile-info span {
-            margin-right: 8px;
-            width: 16px;
-            text-align: center;
+        .profile-info-item a:hover {
+            color: var(--accent-color);
+        }
+
+        .sidebar-menu {
+            width: 100%;
+            margin-top: auto;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .sidebar-menu a:hover {
+            background-color: var(--accent-color);
+            color: #fff;
         }
 
         .main-content {
             flex: 1;
-            padding: 60px 60px;
+            padding: 60px;
         }
 
         .welcome {
-            text-align: center;
             margin-bottom: 60px;
+            padding-left: 20px;
+            border-left: 3px solid var(--accent-color);
         }
 
         .welcome h1 {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 20px;
-            font-weight: normal;
-        }
-
-        .welcome h2 {
-            font-size: 20px;
-            color: #2c3e50;
-            margin-bottom: 10px;
-            font-weight: 500;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
         }
 
         .welcome p {
-            font-size: 14px;
-            color: #7f8c8d;
-        }
-
-        .sections {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            font-size: 16px;
+            color: var(--text-secondary);
         }
 
         .section {
-            text-align: center;
+            margin-bottom: 60px;
         }
 
         .section-title {
-            font-size: 20px;
+            font-size: 28px;
             font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 40px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #3498db;
-            display: inline-block;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        .section-links {
-            text-align: left;
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
         }
 
-        .section-links a {
-            display: block;
-            color: #3498db;
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
             text-decoration: none;
+            color: var(--text-primary);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px var(--shadow-color);
+        }
+
+        .card-icon {
+            flex-shrink: 0;
+        }
+        
+        .card-content h3 {
             font-size: 16px;
-            margin-bottom: 20px;
-            padding: 8px 0;
-            transition: color 0.3s ease;
-            position: relative;
+            font-weight: 600;
+            margin-bottom: 4px;
         }
-
-        .section-links a:hover {
-            color: #2980b9;
-        }
-
-        .section-links a::before {
-            content: '';
-            position: absolute;
-            left: -20px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 4px;
-            height: 4px;
-            background: #3498db;
-            border-radius: 50%;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .section-links a:hover::before {
-            opacity: 1;
-        }
-
-        .header {
-            position: absolute;
-            top: 20px;
-            right: 30px;
+        
+        .card-content p {
             font-size: 14px;
-            color: #bdc3c7;
-            cursor: pointer;
+            color: var(--text-secondary);
         }
 
-        .header:hover {
-            color: #7f8c8d;
-        }
-
-        @media (max-width: 768px) {
+        @media (max-width: 1200px) {
             .container {
                 flex-direction: column;
             }
-
             .sidebar {
                 width: 100%;
-                padding: 30px 20px;
-                text-align: center;
+                height: auto;
+                position: static;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
             }
-
             .main-content {
-                padding: 30px 20px;
-            }
-
-            .sections {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            /* --- 수정된 모바일 프로필 이미지 스타일 --- */
-            .profile-img {
-                width: 120px;
-                height: 120px; /* 원형을 유지하기 위해 가로/세로 동일하게 설정 */
-                margin: 0 auto 20px;
+                padding: 40px;
             }
         }
+
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 30px;
+            }
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
     </style>
 </head>
 <body>
 
-    
     <div class="container">
-        <div class="sidebar">
+        <aside class="sidebar">
             <div class="profile-img"></div>
-            <div class="profile-name">조민우</div>
-            <div class="profile-desc">School of Electrical and Electronic Engineering, Konkuk University</div>
+            <h1 class="profile-name">조민우</h1>
+            <p class="profile-desc">School of Electrical and Electronic Engineering, Konkuk University</p>
             
             <div class="profile-info">
-                <div>
-                    <span>📍</span> Seoul
+                <div class="profile-info-item">
+                    <i data-lucide="map-pin"></i>
+                    <span>Seoul</span>
                 </div>
-                <div>
-                    <span>📧</span> pellyyr3@konkuk.ac.kr
+                <div class="profile-info-item">
+                    <i data-lucide="mail"></i>
+                    <a href="mailto:pellyyr3@konkuk.ac.kr">pellyyr3@konkuk.ac.kr</a>
                 </div>
-                <div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="16" style="vertical-align: middle; margin-right: 6px;">
-                    <a href="https://www.instagram.com/m1nwoooo" target="_blank" style="color: #E1306C; text-decoration: none;">
-                        @m1nwoooo
+                <div class="profile-info-item">
+                    <i data-lucide="instagram"></i>
+                    <a href="https://www.instagram.com/m1nwoooo" target="_blank">@m1nwoooo</a>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="#study">
+                    <i data-lucide="book-open"></i>
+                    <span>Study</span>
+                </a>
+                <a href="#project">
+                    <i data-lucide="lightbulb"></i>
+                    <span>Project</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="welcome">
+                <h1>Welcome :)</h1>
+                <p>The Notion page in the Study section of my blog is still quite roughly organize. I appreciate your understanding.</p>
+            </header>
+
+            <section class="section" id="study">
+                <h2 class="section-title"><i data-lucide="notebook-tabs"></i>Study</h2>
+                <div class="card-container">
+                    <a href="https://sun-purpose-c0c.notion.site/9790f1ab12eb4c38926583c922dd805f?source=copy_link" target="_blank" class="card">
+                        <div class="card-icon"><i data-lucide="cpu"></i></div>
+                        <div class="card-content"><h3>Logic Circuits</h3></div>
+                    </a>
+                    <a href="https://sun-purpose-c0c.notion.site/793c466d4aa6479f882f0d48447406df?source=copy_link" target="_blank" class="card">
+                        <div class="card-icon"><i data-lucide="architecture"></i></div>
+                        <div class="card-content"><h3>Computer Architecture</h3></div>
+                    </a>
+                    <a href="https://sun-purpose-c0c.notion.site/1ad4f2764313807c9d7dd08e55221ca4?source=copy_link" target="_blank" class="card">
+                        <div class="card-icon"><i data-lucide="memory-stick"></i></div>
+                        <div class="card-content"><h3>Microprocessor Application</h3></div>
+                    </a>
+                    <a href="https://sun-purpose-c0c.notion.site/AI-1d04f27643138045be59d4536503d390?source=copy_link" target="_blank" class="card">
+                        <div class="card-icon"><i data-lucide="brain-circuit"></i></div>
+                        <div class="card-content"><h3>AI Accelerator Design</h3></div>
+                    </a>
+                    <a href="https://sun-purpose-c0c.notion.site/C-c0dc7bc35e174d38be564873ffd9d9ad?source=copy_link" target="_blank" class="card">
+                        <div class="card-icon"><i data-lucide="code"></i></div>
+                        <div class="card-content"><h3>C Programming</h3></div>
+                    </a>
+                    <a href="https://sun-purpose-c0c.notion.site/C-ecb580a755d04575b0516e92358db78e?source=copy_link" target="_blank" class="card">
+                        <div class="card-icon"><i data-lucide="code-2"></i></div>
+                        <div class="card-content"><h3>C++ Programming</h3></div>
+                    </a>
+                    <a href="deep-learning.html" class="card">
+                        <div class="card-icon"><i data-lucide="layers"></i></div>
+                        <div class="card-content"><h3>Deep Learning</h3></div>
+                    </a>
+                    <a href="https://sun-purpose-c0c.notion.site/1-2efff2ce0b8446c982723cb0864208bf?source=copy_link" target="_blank" class="card">
+                        <div class="card-icon"><i data-lucide="circuit-board"></i></div>
+                        <div class="card-content"><h3>Electronic Circuit 1</h3></div>
+                    </a>
+                     <a href="https://sun-purpose-c0c.notion.site/2-1ad4f2764313806ca6afd10427516199?source=copy_link" target="_blank" class="card">
+                        <div class="card-icon"><i data-lucide="circuit-board"></i></div>
+                        <div class="card-content"><h3>Electronic Circuit 2</h3></div>
                     </a>
                 </div>
-            </div>
-        </div>
+            </section>
 
-        <div class="main-content">
-            <div class="welcome">
-                <h1>안녕하세요.</h1>
-                <h2>Welcome To My Personal Website :)</h2>
-                <p>The Notion page in the Study section of my blog is still quite roughly organize</p>
-                <p>I appreciate your understanding.</p>
-            </div>
-
-            <div class="sections">
-                <div class="section">
-                    <h3 class="section-title">Study</h3>
-                    <div class="section-links">
-                        <a href="https://sun-purpose-c0c.notion.site/9790f1ab12eb4c38926583c922dd805f?source=copy_link" target="_blank">Logic Circuits</a>
-                        <a href="https://sun-purpose-c0c.notion.site/793c466d4aa6479f882f0d48447406df?source=copy_link" target="_blank">Computer Architecture</a>
-                        <a href="https://sun-purpose-c0c.notion.site/1ad4f2764313807c9d7dd08e55221ca4?source=copy_link" target="_blank">Microprocessor Application</a>
-                        <a href="https://sun-purpose-c0c.notion.site/AI-1d04f27643138045be59d4536503d390?source=copy_link" target="_blank">AI Accelerator Design</a>
-                        <a href="https://sun-purpose-c0c.notion.site/C-c0dc7bc35e174d38be564873ffd9d9ad?source=copy_link" target="_blank">C Programming</a>
-                        <a href="https://sun-purpose-c0c.notion.site/C-ecb580a755d04575b0516e92358db78e?source=copy_link" target="_blank">C++ Programming</a>
-                        <a href="deep-learning.html">Deep Learning</a>
-                        <a href="https://sun-purpose-c0c.notion.site/1-2efff2ce0b8446c982723cb0864208bf?source=copy_link" target="_blank">Electronic Circuit 1</a>
-                        <a href="https://sun-purpose-c0c.notion.site/2-1ad4f2764313806ca6afd10427516199?source=copy_link" target="_blank">Electronic Circuit 2</a>
-                    </div>
+            <section class="section" id="project">
+                <h2 class="section-title"><i data-lucide="rocket"></i>Project</h2>
+                <div class="card-container">
+                    <a href="project-tnn-accelerator.html" class="card">
+                        <div class="card-icon"><i data-lucide="zap"></i></div>
+                        <div class="card-content"><h3>Hardware Accelerator for Tiny Neural Networks</h3></div>
+                    </a>
+                    <a href="project-fft-riscv.html" class="card">
+                        <div class="card-icon"><i data-lucide="gauge-circle"></i></div>
+                        <div class="card-content"><h3>64pt FFT Accelerator with RISC-V</h3></div>
+                    </a>
+                    <a href="project-fft-zynq.html" class="card">
+                        <div class="card-icon"><i data-lucide="bar-chart-big"></i></div>
+                        <div class="card-content"><h3>128-point FFT on Xilinx Zynq-7000</h3></div>
+                    </a>
+                    <a href="project-helmet-system.html" class="card">
+                        <div class="card-icon"><i data-lucide="hard-hat"></i></div>
+                        <div class="card-content"><h3>Helmet-Mounted System</h3></div>
+                    </a>
+                    <a href="project-tictactoe.html" class="card">
+                        <div class="card-icon"><i data-lucide="gamepad-2"></i></div>
+                        <div class="card-content"><h3>Tic-Tac-Toe Game with Arduino & Python</h3></div>
+                    </a>
+                    <a href="https://github.com/m1nwoooo" target="_blank" class="card">
+                        <div class="card-icon"><i data-lucide="github"></i></div>
+                        <div class="card-content"><h3>GitHub Repositories</h3></div>
+                    </a>
                 </div>
-
-                <div class="section">
-                    <h3 class="section-title">Project</h3>
-                    <div class="section-links">
-                        <a href="project-tnn-accelerator.html">Hardware Accelerator for Tiny Neural Networks</a>
-                        <a href="project-fft-riscv.html">64pt FFT Accelerator with RISC-V</a>
-                        <a href="project-fft-zynq.html">128-point FFT on Xilinx Zynq-7000</a>
-                        <a href="project-helmet-system.html">Helmet-Mounted System</a>
-                        <a href="project-tictactoe.html">Tic-Tac-Toe Game with Arduino & Python</a>
-                        <a href="https://github.com/m1nwoooo" target="_blank">🔗 GitHub Repositories</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+            </section>
+        </main>
     </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>

@@ -12,409 +12,442 @@
         }
 
         body {
-            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: #f8fafc;
             min-height: 100vh;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 2rem;
         }
 
         header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #2c3e50;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #2c3e50;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: #3498db;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: #3498db;
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        main {
-            margin-top: 80px;
-        }
-
-        .section {
-            min-height: 100vh;
-            padding: 4rem 0;
-            display: flex;
-            align-items: center;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-        }
-
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .hero {
             text-align: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            margin-top: -80px;
-            padding-top: 160px;
+            margin-bottom: 3rem;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+        h1 {
+            font-size: 2.5rem;
             font-weight: 300;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
         }
 
-        .hero p {
-            font-size: 1.3rem;
+        .subtitle {
+            color: #718096;
+            font-size: 1.1rem;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
             margin-bottom: 2rem;
-            opacity: 0.9;
+            border-bottom: 2px solid #e2e8f0;
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 12px 30px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+        .tab {
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #718096;
+            cursor: pointer;
             transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
         }
 
-        .cta-button:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
+        .tab:hover {
+            color: #4a5568;
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        .tab.active {
+            color: #3182ce;
+            border-bottom-color: #3182ce;
         }
 
         .content {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            min-height: 500px;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 400;
+            color: #2d3748;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .intro-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .intro-text h3 {
+            font-size: 1.3rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        .intro-text p {
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .intro-info {
+            background: #f7fafc;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .info-item {
+            display: flex;
+            margin-bottom: 1rem;
             align-items: center;
         }
 
-        .text-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: #2c3e50;
-            font-weight: 300;
+        .info-label {
+            font-weight: 600;
+            color: #2d3748;
+            width: 80px;
+            flex-shrink: 0;
         }
 
-        .text-content p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-            color: #5a6c7d;
+        .info-value {
+            color: #4a5568;
         }
 
-        .visual-content {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        .tech-skills {
             margin-top: 2rem;
         }
 
-        .card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .skill-category {
+            margin-bottom: 1.5rem;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        .skill-category h4 {
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
         }
 
-        .card h3 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .card p {
-            color: #5a6c7d;
-            line-height: 1.6;
-        }
-
-        .tech-stack {
+        .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1rem;
+            gap: 0.5rem;
         }
 
-        .tech-tag {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .skill {
+            background: #3182ce;
             color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
             font-weight: 500;
         }
 
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
+        .study-content {
+            text-align: center;
         }
 
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, #667eea, #764ba2);
+        .notion-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            margin: 2rem 0;
+            transition: transform 0.3s ease;
         }
 
-        .timeline-item {
-            background: white;
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            position: relative;
+        .notion-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
         }
 
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -1.75rem;
-            top: 1.5rem;
-            width: 12px;
-            height: 12px;
-            background: #667eea;
-            border-radius: 50%;
-            border: 3px solid white;
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card h3 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .project-card p {
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tech .skill {
+            background: #48bb78;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .github-link {
+            background: #2d3748;
+            color: white;
+        }
+
+        .demo-link {
+            background: #3182ce;
+            color: white;
+        }
+
+        .project-link:hover {
+            transform: translateY(-1px);
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                gap: 1rem;
+            .container {
+                padding: 1rem;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
+            h1 {
+                font-size: 2rem;
+            }
+
+            .tabs {
+                flex-direction: column;
+                background: white;
+                border-radius: 8px;
+                overflow: hidden;
+                margin-bottom: 1rem;
+            }
+
+            .tab {
+                border-bottom: 1px solid #e2e8f0;
+                border-right: none;
+                border-left: 3px solid transparent;
+            }
+
+            .tab.active {
+                border-bottom-color: transparent;
+                border-left-color: #3182ce;
             }
 
             .content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+                padding: 2rem;
             }
 
-            .text-content h2 {
-                font-size: 2rem;
+            .intro-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">Portfolio</div>
-            <ul class="nav-links">
-                <li><a href="#introduction">Introduction</a></li>
-                <li><a href="#study">Study</a></li>
-                <li><a href="#project">Project</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="container">
+        <header>
+            <h1>Portfolio</h1>
+            <p class="subtitle">개발자 포트폴리오</p>
+        </header>
 
-    <main>
-        <section class="section hero" id="home">
-            <div class="container">
-                <h1>안녕하세요</h1>
-                <p>열정적인 개발자의 포트폴리오에 오신 것을 환영합니다</p>
-                <a href="#introduction" class="cta-button">시작하기</a>
-            </div>
-        </section>
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('introduction')">Introduction</button>
+            <button class="tab" onclick="showTab('study')">Study</button>
+            <button class="tab" onclick="showTab('project')">Project</button>
+        </div>
 
-        <section class="section" id="introduction">
-            <div class="container">
-                <div class="content">
-                    <div class="text-content">
-                        <h2>Introduction</h2>
-                        <p>안녕하세요! 저는 기술에 대한 열정과 혁신적인 솔루션을 만드는 것을 좋아하는 개발자입니다.</p>
-                        <p>끊임없이 학습하고 성장하며, 사용자 중심의 경험을 만들어가는 것이 제 목표입니다.</p>
+        <div class="content">
+            <div id="introduction" class="tab-content active">
+                <h2>Introduction</h2>
+                <div class="intro-grid">
+                    <div class="intro-text">
+                        <h3>안녕하세요! 👋</h3>
+                        <p>저는 기술에 대한 열정과 끊임없는 학습 의지를 가진 개발자입니다.</p>
+                        <p>사용자 중심의 경험을 만들고, 깔끔하고 효율적인 코드를 작성하는 것을 추구합니다.</p>
+                        <p>새로운 기술을 배우고 적용하는 과정에서 성장하는 것을 즐깁니다.</p>
                     </div>
-                    <div class="visual-content">
-                        <h3>About Me</h3>
-                        <div class="tech-stack">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
+                    <div class="intro-info">
+                        <div class="info-item">
+                            <span class="info-label">이름:</span>
+                            <span class="info-value">[여기에 이름 입력]</span>
                         </div>
-                        <p style="margin-top: 1.5rem; color: #5a6c7d;">
-                            "코드는 시이고, 알고리즘은 음악이며, 좋은 소프트웨어는 예술입니다."
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="study">
-            <div class="container">
-                <div class="content">
-                    <div class="visual-content">
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <h4>Computer Science Fundamentals</h4>
-                                <p>알고리즘, 자료구조, 데이터베이스</p>
+                        <div class="info-item">
+                            <span class="info-label">전공:</span>
+                            <span class="info-value">[여기에 전공 입력]</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">위치:</span>
+                            <span class="info-value">[여기에 위치 입력]</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">이메일:</span>
+                            <span class="info-value">[여기에 이메일 입력]</span>
+                        </div>
+                        
+                        <div class="tech-skills">
+                            <div class="skill-category">
+                                <h4>Programming Languages</h4>
+                                <div class="skills">
+                                    <span class="skill">Python</span>
+                                    <span class="skill">JavaScript</span>
+                                    <span class="skill">Java</span>
+                                    <span class="skill">C++</span>
+                                </div>
                             </div>
-                            <div class="timeline-item">
-                                <h4>Web Development</h4>
-                                <p>Frontend & Backend 기술 스택</p>
-                            </div>
-                            <div class="timeline-item">
-                                <h4>AI & Machine Learning</h4>
-                                <p>인공지능과 머신러닝 연구</p>
+                            <div class="skill-category">
+                                <h4>Frameworks & Libraries</h4>
+                                <div class="skills">
+                                    <span class="skill">React</span>
+                                    <span class="skill">Node.js</span>
+                                    <span class="skill">Django</span>
+                                    <span class="skill">Express</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="text-content">
-                        <h2>Study</h2>
-                        <p>지속적인 학습을 통해 최신 기술 트렌드를 따라가며, 이론과 실무를 균형있게 발전시키고 있습니다.</p>
-                        <p>온라인 강의, 기술 서적, 그리고 실제 프로젝트를 통해 깊이 있는 지식을 쌓아가고 있습니다.</p>
-                    </div>
                 </div>
             </div>
-        </section>
 
-        <section class="section" id="project">
-            <div class="container">
-                <div class="text-content" style="text-align: center; margin-bottom: 3rem;">
-                    <h2>Projects</h2>
-                    <p>창의적인 아이디어를 실현한 프로젝트들을 소개합니다.</p>
+            <div id="study" class="tab-content">
+                <h2>Study</h2>
+                <div class="study-content">
+                    <p>지속적인 학습과 성장을 위한 노트와 기록들을 정리하고 있습니다.</p>
+                    <a href="https://notion.so/your-study-page" class="notion-link" target="_blank">
+                        📚 Notion 스터디 노트 보기
+                    </a>
+                    <p style="color: #718096; margin-top: 2rem;">
+                        알고리즘, 자료구조, 새로운 기술 스택 학습 내용을<br>
+                        체계적으로 정리하여 공유합니다.
+                    </p>
                 </div>
-                <div class="card-grid">
-                    <div class="card">
-                        <h3>📱 웹 애플리케이션</h3>
-                        <p>React와 Node.js를 활용한 풀스택 웹 애플리케이션</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">MongoDB</span>
+            </div>
+
+            <div id="project" class="tab-content">
+                <h2>Projects</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h3>🌐 웹 애플리케이션</h3>
+                        <p>React와 Node.js를 활용한 풀스택 웹 애플리케이션입니다. 사용자 인증, 데이터 관리 등의 기능을 구현했습니다.</p>
+                        <div class="project-tech">
+                            <span class="skill">React</span>
+                            <span class="skill">Node.js</span>
+                            <span class="skill">MongoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link github-link">GitHub</a>
+                            <a href="#" class="project-link demo-link">Demo</a>
                         </div>
                     </div>
-                    <div class="card">
+
+                    <div class="project-card">
                         <h3>🤖 AI 프로젝트</h3>
-                        <p>머신러닝을 활용한 데이터 분석 및 예측 모델</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">TensorFlow</span>
-                            <span class="tech-tag">Pandas</span>
+                        <p>머신러닝을 활용한 데이터 분석 및 예측 모델을 개발했습니다. Python과 TensorFlow를 주로 사용했습니다.</p>
+                        <div class="project-tech">
+                            <span class="skill">Python</span>
+                            <span class="skill">TensorFlow</span>
+                            <span class="skill">Pandas</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link github-link">GitHub</a>
                         </div>
                     </div>
-                    <div class="card">
-                        <h3>📊 데이터 시각화</h3>
-                        <p>복잡한 데이터를 직관적으로 표현하는 대시보드</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">D3.js</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Plotly</span>
+
+                    <div class="project-card">
+                        <h3>📱 모바일 앱</h3>
+                        <p>React Native를 사용하여 크로스 플랫폼 모바일 애플리케이션을 개발했습니다.</p>
+                        <div class="project-tech">
+                            <span class="skill">React Native</span>
+                            <span class="skill">Firebase</span>
+                            <span class="skill">Redux</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link github-link">GitHub</a>
+                            <a href="#" class="project-link demo-link">Demo</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </div>
 
     <script>
-        // 스크롤 애니메이션
-        const sections = document.querySelectorAll('.section');
-        
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+        function showTab(tabName) {
+            // 모든 탭 컨텐츠 숨기기
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
             });
-        }, observerOptions);
 
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-
-        // 부드러운 스크롤
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+            // 모든 탭 버튼 비활성화
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
             });
-        });
+
+            // 선택된 탭 컨텐츠 보이기
+            document.getElementById(tabName).classList.add('active');
+
+            // 선택된 탭 버튼 활성화
+            event.target.classList.add('active');
+        }
     </script>
 </body>
 </html>

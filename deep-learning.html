@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Learning - Study Notes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: #fff;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: #f8f9fa;
+            padding: 40px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .back-btn {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .back-btn:hover {
+            color: #2980b9;
+        }
+
+        .page-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .page-meta {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .description {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #2c3e50;
+            margin-bottom: 40px;
+        }
+
+        .study-topics {
+            margin-bottom: 40px;
+        }
+
+        .topics-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .topic-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .topic-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .topic-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .topic-card p {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        .tech-stack {
+            margin-bottom: 30px;
+        }
+
+        .tech-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-tag {
+            background: #8e44ad;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .note-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .note-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .note-text {
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .note-btn {
+            background: #27ae60;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .note-btn:hover {
+            background: #219a52;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .page-title {
+                font-size: 24px;
+            }
+
+            .topic-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-btn">← Back to Study</a>
+            <h1 class="page-title">Deep Learning Study Notes</h1>
+            <div class="page-meta">
+                Last updated: 2024년 7월 | Personal Study Material
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="description">
+                <p>딥러닝의 기초 개념부터 하드웨어 가속화까지, 전자공학도 관점에서 정리한 학습 노트입니다.</p>
+                <p>특히 AI accelerator 설계와 관련된 내용을 중심으로 하드웨어 친화적인 딥러닝 기법들을 정리하고 있습니다.</p>
+            </div>
+
+            <div class="study-topics">
+                <h2 class="topics-title">주요 학습 내용</h2>
+                <div class="topic-list">
+                    <div class="topic-card">
+                        <h3>Neural Networks Fundamentals</h3>
+                        <p>퍼셉트론, 다층 신경망, 역전파 알고리즘의 기본 원리</p>
+                    </div>
+                    <div class="topic-card">
+                        <h3>Convolutional Neural Networks</h3>
+                        <p>CNN 아키텍처와 하드웨어 구현 관점에서의 최적화</p>
+                    </div>
+                    <div class="topic-card">
+                        <h3>Quantization Techniques</h3>
+                        <p>모델 경량화를 위한 양자화 기법과 하드웨어 지원</p>
+                    </div>
+                    <div class="topic-card">
+                        <h3>Hardware Acceleration</h3>
+                        <p>AI accelerator 설계를 위한 아키텍처 최적화</p>
+                    </div>
+                    <div class="topic-card">
+                        <h3>Optimization Algorithms</h3>
+                        <p>SGD, Adam 등 최적화 알고리즘과 하드웨어 구현</p>
+                    </div>
+                    <div class="topic-card">
+                        <h3>Edge AI Implementation</h3>
+                        <p>에지 디바이스를 위한 경량 모델 설계</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech-stack">
+                <div class="tech-title">사용 프레임워크 & 도구</div>
+                <div class="tech-tags">
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">PyTorch</span>
+                    <span class="tech-tag">Keras</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">CUDA</span>
+                    <span class="tech-tag">OpenCV</span>
+                </div>
+            </div>
+
+            <div class="note-section">
+                <div class="note-title">상세 학습 노트</div>
+                <div class="note-text">
+                    더 자세한 내용과 코드 예제, 수식 정리는 별도 문서에서 확인하실 수 있습니다.
+                </div>
+                <a href="https://drive.google.com/file/d/YOUR_DOCUMENT_ID/view" class="note-btn" target="_blank">
+                    📄 Deep Learning 학습 노트 보기
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

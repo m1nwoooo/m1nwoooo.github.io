@@ -155,8 +155,14 @@
             color: var(--text-secondary);
         }
 
+        .sections-container {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
         .section {
-            margin-bottom: 60px;
+            flex: 1;
         }
 
         .section-title {
@@ -171,15 +177,15 @@
 
         .card-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 24px;
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
 
         .card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 24px;
+            padding: 20px;
             text-decoration: none;
             color: var(--text-primary);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -198,13 +204,13 @@
         }
         
         .card-content h3 {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 600;
             margin-bottom: 4px;
         }
         
         .card-content p {
-            font-size: 14px;
+            font-size: 12px;
             color: var(--text-secondary);
         }
 
@@ -222,14 +228,18 @@
             .main-content {
                 padding: 40px;
             }
+            .sections-container {
+                flex-direction: column;
+            }
         }
 
         @media (max-width: 768px) {
             .main-content {
                 padding: 30px;
             }
-            .card-container {
-                grid-template-columns: 1fr;
+            .sections-container {
+                flex-direction: column;
+                gap: 30px;
             }
         }
 
@@ -276,77 +286,79 @@
                 <p>The Notion page in the Study section of my blog is still quite roughly organize. I appreciate your understanding.</p>
             </header>
 
-            <section class="section" id="study">
-                <h2 class="section-title"><i data-lucide="notebook-tabs"></i>Study</h2>
-                <div class="card-container">
-                    <a href="https://sun-purpose-c0c.notion.site/9790f1ab12eb4c38926583c922dd805f?source=copy_link" target="_blank" class="card">
-                        <div class="card-icon"><i data-lucide="cpu"></i></div>
-                        <div class="card-content"><h3>Logic Circuits</h3></div>
-                    </a>
-                    <a href="https://sun-purpose-c0c.notion.site/793c466d4aa6479f882f0d48447406df?source=copy_link" target="_blank" class="card">
-                        <div class="card-icon"><i data-lucide="architecture"></i></div>
-                        <div class="card-content"><h3>Computer Architecture</h3></div>
-                    </a>
-                    <a href="https://sun-purpose-c0c.notion.site/1ad4f2764313807c9d7dd08e55221ca4?source=copy_link" target="_blank" class="card">
-                        <div class="card-icon"><i data-lucide="memory-stick"></i></div>
-                        <div class="card-content"><h3>Microprocessor Application</h3></div>
-                    </a>
-                    <a href="https://sun-purpose-c0c.notion.site/AI-1d04f27643138045be59d4536503d390?source=copy_link" target="_blank" class="card">
-                        <div class="card-icon"><i data-lucide="brain-circuit"></i></div>
-                        <div class="card-content"><h3>AI Accelerator Design</h3></div>
-                    </a>
-                    <a href="https://sun-purpose-c0c.notion.site/C-c0dc7bc35e174d38be564873ffd9d9ad?source=copy_link" target="_blank" class="card">
-                        <div class="card-icon"><i data-lucide="code"></i></div>
-                        <div class="card-content"><h3>C Programming</h3></div>
-                    </a>
-                    <a href="https://sun-purpose-c0c.notion.site/C-ecb580a755d04575b0516e92358db78e?source=copy_link" target="_blank" class="card">
-                        <div class="card-icon"><i data-lucide="code-2"></i></div>
-                        <div class="card-content"><h3>C++ Programming</h3></div>
-                    </a>
-                    <a href="deep-learning.html" class="card">
-                        <div class="card-icon"><i data-lucide="layers"></i></div>
-                        <div class="card-content"><h3>Deep Learning</h3></div>
-                    </a>
-                    <a href="https://sun-purpose-c0c.notion.site/1-2efff2ce0b8446c982723cb0864208bf?source=copy_link" target="_blank" class="card">
-                        <div class="card-icon"><i data-lucide="circuit-board"></i></div>
-                        <div class="card-content"><h3>Electronic Circuit 1</h3></div>
-                    </a>
-                     <a href="https://sun-purpose-c0c.notion.site/2-1ad4f2764313806ca6afd10427516199?source=copy_link" target="_blank" class="card">
-                        <div class="card-icon"><i data-lucide="circuit-board"></i></div>
-                        <div class="card-content"><h3>Electronic Circuit 2</h3></div>
-                    </a>
-                </div>
-            </section>
+            <div class="sections-container">
+                <section class="section" id="study">
+                    <h2 class="section-title"><i data-lucide="notebook-tabs"></i>Study</h2>
+                    <div class="card-container">
+                        <a href="https://sun-purpose-c0c.notion.site/9790f1ab12eb4c38926583c922dd805f?source=copy_link" target="_blank" class="card">
+                            <div class="card-icon"><i data-lucide="cpu"></i></div>
+                            <div class="card-content"><h3>Logic Circuits</h3></div>
+                        </a>
+                        <a href="https://sun-purpose-c0c.notion.site/793c466d4aa6479f882f0d48447406df?source=copy_link" target="_blank" class="card">
+                            <div class="card-icon"><i data-lucide="computer"></i></div>
+                            <div class="card-content"><h3>Computer Architecture</h3></div>
+                        </a>
+                        <a href="https://sun-purpose-c0c.notion.site/1ad4f2764313807c9d7dd08e55221ca4?source=copy_link" target="_blank" class="card">
+                            <div class="card-icon"><i data-lucide="memory-stick"></i></div>
+                            <div class="card-content"><h3>Microprocessor Application</h3></div>
+                        </a>
+                        <a href="https://sun-purpose-c0c.notion.site/AI-1d04f27643138045be59d4536503d390?source=copy_link" target="_blank" class="card">
+                            <div class="card-icon"><i data-lucide="brain-circuit"></i></div>
+                            <div class="card-content"><h3>AI Accelerator Design</h3></div>
+                        </a>
+                        <a href="https://sun-purpose-c0c.notion.site/C-c0dc7bc35e174d38be564873ffd9d9ad?source=copy_link" target="_blank" class="card">
+                            <div class="card-icon"><i data-lucide="code"></i></div>
+                            <div class="card-content"><h3>C Programming</h3></div>
+                        </a>
+                        <a href="https://sun-purpose-c0c.notion.site/C-ecb580a755d04575b0516e92358db78e?source=copy_link" target="_blank" class="card">
+                            <div class="card-icon"><i data-lucide="code-2"></i></div>
+                            <div class="card-content"><h3>C++ Programming</h3></div>
+                        </a>
+                        <a href="deep-learning.html" class="card">
+                            <div class="card-icon"><i data-lucide="layers"></i></div>
+                            <div class="card-content"><h3>Deep Learning</h3></div>
+                        </a>
+                        <a href="https://sun-purpose-c0c.notion.site/1-2efff2ce0b8446c982723cb0864208bf?source=copy_link" target="_blank" class="card">
+                            <div class="card-icon"><i data-lucide="circuit-board"></i></div>
+                            <div class="card-content"><h3>Electronic Circuit 1</h3></div>
+                        </a>
+                         <a href="https://sun-purpose-c0c.notion.site/2-1ad4f2764313806ca6afd10427516199?source=copy_link" target="_blank" class="card">
+                            <div class="card-icon"><i data-lucide="circuit-board"></i></div>
+                            <div class="card-content"><h3>Electronic Circuit 2</h3></div>
+                        </a>
+                    </div>
+                </section>
 
-            <section class="section" id="project">
-                <h2 class="section-title"><i data-lucide="rocket"></i>Project</h2>
-                <div class="card-container">
-                    <a href="project-tnn-accelerator.html" class="card">
-                        <div class="card-icon"><i data-lucide="zap"></i></div>
-                        <div class="card-content"><h3>Hardware Accelerator for Tiny Neural Networks</h3></div>
-                    </a>
-                    <a href="project-fft-riscv.html" class="card">
-                        <div class="card-icon"><i data-lucide="gauge-circle"></i></div>
-                        <div class="card-content"><h3>64pt FFT Accelerator with RISC-V</h3></div>
-                    </a>
-                    <a href="project-fft-zynq.html" class="card">
-                        <div class="card-icon"><i data-lucide="bar-chart-big"></i></div>
-                        <div class="card-content"><h3>128-point FFT on Xilinx Zynq-7000</h3></div>
-                    </a>
-                    <a href="project-helmet-system.html" class="card">
-                        <div class="card-icon"><i data-lucide="hard-hat"></i></div>
-                        <div class="card-content"><h3>Helmet-Mounted System</h3></div>
-                    </a>
-                    <a href="project-tictactoe.html" class="card">
-                        <div class="card-icon"><i data-lucide="gamepad-2"></i></div>
-                        <div class="card-content"><h3>Tic-Tac-Toe Game with Arduino & Python</h3></div>
-                    </a>
-                    <a href="https://github.com/m1nwoooo" target="_blank" class="card">
-                        <div class="card-icon"><i data-lucide="github"></i></div>
-                        <div class="card-content"><h3>GitHub Repositories</h3></div>
-                    </a>
-                </div>
-            </section>
+                <section class="section" id="project">
+                    <h2 class="section-title"><i data-lucide="rocket"></i>Project</h2>
+                    <div class="card-container">
+                        <a href="project-tnn-accelerator.html" class="card">
+                            <div class="card-icon"><i data-lucide="zap"></i></div>
+                            <div class="card-content"><h3>Hardware Accelerator for Tiny Neural Networks</h3></div>
+                        </a>
+                        <a href="project-fft-riscv.html" class="card">
+                            <div class="card-icon"><i data-lucide="gauge-circle"></i></div>
+                            <div class="card-content"><h3>64pt FFT Accelerator with RISC-V</h3></div>
+                        </a>
+                        <a href="project-fft-zynq.html" class="card">
+                            <div class="card-icon"><i data-lucide="bar-chart-big"></i></div>
+                            <div class="card-content"><h3>128-point FFT on Xilinx Zynq-7000</h3></div>
+                        </a>
+                        <a href="project-helmet-system.html" class="card">
+                            <div class="card-icon"><i data-lucide="hard-hat"></i></div>
+                            <div class="card-content"><h3>Helmet-Mounted System</h3></div>
+                        </a>
+                        <a href="project-tictactoe.html" class="card">
+                            <div class="card-icon"><i data-lucide="gamepad-2"></i></div>
+                            <div class="card-content"><h3>Tic-Tac-Toe Game with Arduino & Python</h3></div>
+                        </a>
+                        <a href="https://github.com/m1nwoooo" target="_blank" class="card">
+                            <div class="card-icon"><i data-lucide="github"></i></div>
+                            <div class="card-content"><h3>GitHub Repositories</h3></div>
+                        </a>
+                    </div>
+                </section>
+            </div>
         </main>
     </div>
 

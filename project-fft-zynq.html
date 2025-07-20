@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>128-point FFT on Xilinx Zynq-7000</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: #fff;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: #f8f9fa;
+            padding: 40px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .back-btn {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .back-btn:hover {
+            color: #2980b9;
+        }
+
+        .project-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .description {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #2c3e50;
+            margin-bottom: 40px;
+        }
+
+        .tech-stack {
+            margin-bottom: 30px;
+        }
+
+        .tech-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-tag {
+            background: #9b59b6;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .download-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .download-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .download-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .download-btn {
+            background: #27ae60;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .download-btn:hover {
+            background: #219a52;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+        }
+
+        .github-btn {
+            background: #333;
+        }
+
+        .github-btn:hover {
+            background: #2c3e50;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .project-title {
+                font-size: 24px;
+            }
+
+            .project-meta {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .download-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-btn">← Back to Projects</a>
+            <h1 class="project-title">Designed and implemented a 128-point FFT on a Xilinx Zynq-7000</h1>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <span>📅</span>
+                    <span>2023.10 - 2023.12</span>
+                </div>
+                <div class="meta-item">
+                    <span>👥</span>
+                    <span>Individual Project</span>
+                </div>
+                <div class="meta-item">
+                    <span>🎯</span>
+                    <span>Academic Project</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="description">
+                <p>Xilinx Zynq-7000 SoC를 활용하여 128포인트 FFT를 하드웨어와 소프트웨어의 협력으로 구현한 프로젝트입니다.</p>
+                
+                <p>ARM 프로세서와 FPGA를 결합한 Zynq의 특성을 활용하여, 계산 집약적인 부분은 FPGA의 하드웨어 가속기로 처리하고, 제어 로직은 ARM 프로세서에서 담당하는 하이브리드 아키텍처를 구현했습니다.</p>
+                
+                <p>AXI4 인터페이스를 통한 효율적인 데이터 통신과 DMA를 활용한 고속 메모리 접근을 통해 최적화된 성능을 달성했습니다.</p>
+            </div>
+
+            <div class="tech-stack">
+                <div class="tech-title">사용 기술</div>
+                <div class="tech-tags">
+                    <span class="tech-tag">Xilinx Zynq-7000</span>
+                    <span class="tech-tag">Verilog HDL</span>
+                    <span class="tech-tag">AXI4</span>
+                    <span class="tech-tag">ARM Cortex-A9</span>
+                    <span class="tech-tag">C/C++</span>
+                    <span class="tech-tag">Vivado</span>
+                </div>
+            </div>
+
+            <div class="download-section">
+                <div class="download-title">프로젝트 문서 및 코드</div>
+                <div class="download-links">
+                    <a href="https://drive.google.com/file/d/YOUR_DOCUMENT_ID/view" class="download-btn" target="_blank">
+                        📄 프로젝트 보고서
+                    </a>
+                    <a href="https://github.com/m1nwoooo/fft-zynq" class="download-btn github-btn" target="_blank">
+                        💻 GitHub 코드
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

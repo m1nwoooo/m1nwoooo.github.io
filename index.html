@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>YourName</title>
     <style>
         * {
             margin: 0;
@@ -15,439 +15,250 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: #f8fafc;
-            min-height: 100vh;
+            background: #fff;
         }
 
         .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 300;
-            color: #2d3748;
-            margin-bottom: 0.5rem;
-        }
-
-        .subtitle {
-            color: #718096;
-            font-size: 1.1rem;
-        }
-
-        .tabs {
             display: flex;
-            justify-content: center;
-            margin-bottom: 2rem;
-            border-bottom: 2px solid #e2e8f0;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 100vh;
         }
 
-        .tab {
-            padding: 1rem 2rem;
-            background: none;
-            border: none;
-            font-size: 1rem;
-            font-weight: 500;
-            color: #718096;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-bottom: 3px solid transparent;
+        .sidebar {
+            width: 300px;
+            padding: 60px 40px;
+            background: #fafafa;
+            border-right: 1px solid #eee;
         }
 
-        .tab:hover {
-            color: #4a5568;
-            background: rgba(0, 0, 0, 0.02);
+        .profile-img {
+            width: 150px;
+            height: 200px;
+            background: #ddd;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 200"><rect width="150" height="200" fill="%23f0f0f0"/><text x="50%" y="50%" text-anchor="middle" fill="%23999" font-size="14">프로필 사진</text></svg>');
+            background-size: cover;
+            background-position: center;
         }
 
-        .tab.active {
-            color: #3182ce;
-            border-bottom-color: #3182ce;
+        .profile-name {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
         }
 
-        .content {
-            background: white;
-            border-radius: 12px;
-            padding: 3rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            min-height: 500px;
+        .profile-desc {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-bottom: 30px;
         }
 
-        .tab-content {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        h2 {
-            font-size: 2rem;
-            font-weight: 400;
-            color: #2d3748;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .intro-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .intro-text h3 {
-            font-size: 1.3rem;
-            color: #2d3748;
-            margin-bottom: 1rem;
-        }
-
-        .intro-text p {
-            color: #4a5568;
-            margin-bottom: 1.5rem;
+        .profile-info {
+            font-size: 13px;
+            color: #666;
             line-height: 1.8;
         }
 
-        .intro-info {
-            background: #f7fafc;
-            padding: 2rem;
-            border-radius: 8px;
-        }
-
-        .info-item {
+        .profile-info div {
+            margin-bottom: 8px;
             display: flex;
-            margin-bottom: 1rem;
             align-items: center;
         }
 
-        .info-label {
-            font-weight: 600;
-            color: #2d3748;
-            width: 80px;
-            flex-shrink: 0;
-        }
-
-        .info-value {
-            color: #4a5568;
-        }
-
-        .tech-skills {
-            margin-top: 2rem;
-        }
-
-        .skill-category {
-            margin-bottom: 1.5rem;
-        }
-
-        .skill-category h4 {
-            color: #2d3748;
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .skill {
-            background: #3182ce;
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .study-content {
+        .profile-info span {
+            margin-right: 8px;
+            width: 16px;
             text-align: center;
         }
 
-        .notion-link {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 8px;
+        .main-content {
+            flex: 1;
+            padding: 60px 60px;
+        }
+
+        .welcome {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .welcome h1 {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        .welcome h2 {
+            font-size: 20px;
+            color: #2c3e50;
+            margin-bottom: 10px;
             font-weight: 500;
-            margin: 2rem 0;
-            transition: transform 0.3s ease;
         }
 
-        .notion-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        .welcome p {
+            font-size: 14px;
+            color: #7f8c8d;
         }
 
-        .project-grid {
+        .sections {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
         }
 
-        .project-card {
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 2rem;
-            transition: all 0.3s ease;
+        .section {
+            text-align: center;
         }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+            display: inline-block;
         }
 
-        .project-card h3 {
-            color: #2d3748;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
+        .section-links {
+            text-align: left;
         }
 
-        .project-card p {
-            color: #4a5568;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .project-tech .skill {
-            background: #48bb78;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .project-link {
-            padding: 0.5rem 1rem;
+        .section-links a {
+            display: block;
+            color: #3498db;
             text-decoration: none;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
+            font-size: 16px;
+            margin-bottom: 20px;
+            padding: 8px 0;
+            transition: color 0.3s ease;
+            position: relative;
         }
 
-        .github-link {
-            background: #2d3748;
-            color: white;
+        .section-links a:hover {
+            color: #2980b9;
         }
 
-        .demo-link {
-            background: #3182ce;
-            color: white;
+        .section-links a::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 4px;
+            background: #3498db;
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        .project-link:hover {
-            transform: translateY(-1px);
+        .section-links a:hover::before {
+            opacity: 1;
+        }
+
+        .header {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 14px;
+            color: #bdc3c7;
+            cursor: pointer;
+        }
+
+        .header:hover {
+            color: #7f8c8d;
         }
 
         @media (max-width: 768px) {
             .container {
-                padding: 1rem;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            .tabs {
                 flex-direction: column;
-                background: white;
-                border-radius: 8px;
-                overflow: hidden;
-                margin-bottom: 1rem;
             }
 
-            .tab {
-                border-bottom: 1px solid #e2e8f0;
-                border-right: none;
-                border-left: 3px solid transparent;
+            .sidebar {
+                width: 100%;
+                padding: 30px 20px;
+                text-align: center;
             }
 
-            .tab.active {
-                border-bottom-color: transparent;
-                border-left-color: #3182ce;
+            .main-content {
+                padding: 30px 20px;
             }
 
-            .content {
-                padding: 2rem;
-            }
-
-            .intro-grid {
+            .sections {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 40px;
+            }
+
+            .profile-img {
+                width: 120px;
+                height: 160px;
+                margin: 0 auto 20px;
             }
         }
     </style>
 </head>
 <body>
+    <div class="header">Curriculum Vitae</div>
+    
     <div class="container">
-        <header>
-            <h1>Portfolio</h1>
-            <p class="subtitle">개발자 포트폴리오</p>
-        </header>
-
-        <div class="tabs">
-            <button class="tab active" onclick="showTab('introduction')">Introduction</button>
-            <button class="tab" onclick="showTab('study')">Study</button>
-            <button class="tab" onclick="showTab('project')">Project</button>
+        <div class="sidebar">
+            <div class="profile-img"></div>
+            <div class="profile-name">Your Name</div>
+            <div class="profile-desc">Electronic & Computer Engineering</div>
+            
+            <div class="profile-info">
+                <div>
+                    <span>📍</span> Seoul
+                </div>
+                <div>
+                    <span>📧</span> your.email@gmail.com
+                </div>
+                <div>
+                    <span>📱</span> your_github
+                </div>
+            </div>
         </div>
 
-        <div class="content">
-            <div id="introduction" class="tab-content active">
-                <h2>Introduction</h2>
-                <div class="intro-grid">
-                    <div class="intro-text">
-                        <h3>안녕하세요! 👋</h3>
-                        <p>저는 기술에 대한 열정과 끊임없는 학습 의지를 가진 개발자입니다.</p>
-                        <p>사용자 중심의 경험을 만들고, 깔끔하고 효율적인 코드를 작성하는 것을 추구합니다.</p>
-                        <p>새로운 기술을 배우고 적용하는 과정에서 성장하는 것을 즐깁니다.</p>
-                    </div>
-                    <div class="intro-info">
-                        <div class="info-item">
-                            <span class="info-label">이름:</span>
-                            <span class="info-value">[여기에 이름 입력]</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">전공:</span>
-                            <span class="info-value">[여기에 전공 입력]</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">위치:</span>
-                            <span class="info-value">[여기에 위치 입력]</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">이메일:</span>
-                            <span class="info-value">[여기에 이메일 입력]</span>
-                        </div>
-                        
-                        <div class="tech-skills">
-                            <div class="skill-category">
-                                <h4>Programming Languages</h4>
-                                <div class="skills">
-                                    <span class="skill">Python</span>
-                                    <span class="skill">JavaScript</span>
-                                    <span class="skill">Java</span>
-                                    <span class="skill">C++</span>
-                                </div>
-                            </div>
-                            <div class="skill-category">
-                                <h4>Frameworks & Libraries</h4>
-                                <div class="skills">
-                                    <span class="skill">React</span>
-                                    <span class="skill">Node.js</span>
-                                    <span class="skill">Django</span>
-                                    <span class="skill">Express</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="main-content">
+            <div class="welcome">
+                <h1>안녕하세요.</h1>
+                <h2>Welcome To My Personal Website :)</h2>
+                <p>Using desktop mode is recommended!</p>
             </div>
 
-            <div id="study" class="tab-content">
-                <h2>Study</h2>
-                <div class="study-content">
-                    <p>지속적인 학습과 성장을 위한 노트와 기록들을 정리하고 있습니다.</p>
-                    <a href="https://notion.so/your-study-page" class="notion-link" target="_blank">
-                        📚 Notion 스터디 노트 보기
-                    </a>
-                    <p style="color: #718096; margin-top: 2rem;">
-                        알고리즘, 자료구조, 새로운 기술 스택 학습 내용을<br>
-                        체계적으로 정리하여 공유합니다.
-                    </p>
+            <div class="sections">
+                <div class="section">
+                    <h3 class="section-title">Study</h3>
+                    <div class="section-links">
+                        <a href="https://notion.so/logic-circuits" target="_blank">Logic Circuits</a>
+                        <a href="https://notion.so/computer-architecture" target="_blank">Computer Architecture</a>
+                        <a href="https://notion.so/microprocessor-application" target="_blank">Microprocessor Application</a>
+                        <a href="https://notion.so/ai-accelerator-design" target="_blank">AI Accelerator Design</a>
+                        <a href="https://notion.so/c-programming" target="_blank">C Programming</a>
+                        <a href="https://notion.so/cpp-programming" target="_blank">C++ Programming</a>
+                        <a href="deep-learning.html">Deep Learning</a>
+                        <a href="https://notion.so/electronic-circuit-1" target="_blank">Electronic Circuit 1</a>
+                        <a href="https://notion.so/electronic-circuit-2" target="_blank">Electronic Circuit 2</a>
+                    </div>
                 </div>
-            </div>
 
-            <div id="project" class="tab-content">
-                <h2>Projects</h2>
-                <div class="project-grid">
-                    <div class="project-card">
-                        <h3>🌐 웹 애플리케이션</h3>
-                        <p>React와 Node.js를 활용한 풀스택 웹 애플리케이션입니다. 사용자 인증, 데이터 관리 등의 기능을 구현했습니다.</p>
-                        <div class="project-tech">
-                            <span class="skill">React</span>
-                            <span class="skill">Node.js</span>
-                            <span class="skill">MongoDB</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link github-link">GitHub</a>
-                            <a href="#" class="project-link demo-link">Demo</a>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <h3>🤖 AI 프로젝트</h3>
-                        <p>머신러닝을 활용한 데이터 분석 및 예측 모델을 개발했습니다. Python과 TensorFlow를 주로 사용했습니다.</p>
-                        <div class="project-tech">
-                            <span class="skill">Python</span>
-                            <span class="skill">TensorFlow</span>
-                            <span class="skill">Pandas</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link github-link">GitHub</a>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <h3>📱 모바일 앱</h3>
-                        <p>React Native를 사용하여 크로스 플랫폼 모바일 애플리케이션을 개발했습니다.</p>
-                        <div class="project-tech">
-                            <span class="skill">React Native</span>
-                            <span class="skill">Firebase</span>
-                            <span class="skill">Redux</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link github-link">GitHub</a>
-                            <a href="#" class="project-link demo-link">Demo</a>
-                        </div>
+                <div class="section">
+                    <h3 class="section-title">Project</h3>
+                    <div class="section-links">
+                        <a href="project-tnn-accelerator.html">Hardware Accelerator for Tiny Neural Networks</a>
+                        <a href="project-fft-riscv.html">64pt FFT Accelerator with RISC-V</a>
+                        <a href="project-fft-zynq.html">128-point FFT on Xilinx Zynq-7000</a>
+                        <a href="project-helmet-system.html">Helmet-Mounted System</a>
+                        <a href="project-tictactoe.html">Tic-Tac-Toe Game with Arduino & Python</a>
+                        <a href="https://github.com/your-username" target="_blank">🔗 GitHub Repositories</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <script>
-        function showTab(tabName) {
-            // 모든 탭 컨텐츠 숨기기
-            const tabContents = document.querySelectorAll('.tab-content');
-            tabContents.forEach(content => {
-                content.classList.remove('active');
-            });
-
-            // 모든 탭 버튼 비활성화
-            const tabs = document.querySelectorAll('.tab');
-            tabs.forEach(tab => {
-                tab.classList.remove('active');
-            });
-
-            // 선택된 탭 컨텐츠 보이기
-            document.getElementById(tabName).classList.add('active');
-
-            // 선택된 탭 버튼 활성화
-            event.target.classList.add('active');
-        }
-    </script>
 </body>
 </html>

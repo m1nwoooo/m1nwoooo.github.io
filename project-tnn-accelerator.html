@@ -207,22 +207,16 @@
 
         <div class="content">
             <div class="description">
-                <p>본 프로젝트는 IoT 및 에지 디바이스에서의 실시간 AI 추론을 위한 전용 하드웨어 가속기를 설계하고 구현한 프로젝트입니다.</p>
-                
-                <p>Tiny Neural Networks (TNNs)에 최적화된 아키텍처를 통해 저전력, 고효율의 추론 성능을 달성하였으며, FPGA를 활용한 프로토타입 구현을 완료했습니다.</p>
-                
-                <p>주요 성과로는 기존 CPU 대비 15배, GPU 대비 3배의 에너지 효율성을 달성하였고, 245MHz 동작 주파수에서 3.2 TOPS의 성능을 구현했습니다.</p>
+                <p>본 프로젝트는 Edge Device에서의 실시간 AI 추론을 위한 AI가속기를 설계하는 것을 목표로 한다.</p>
+                <p>FC layer1, NORM, ReLU, FC layer2로 구성된 Tiny Neural Network를 설계를 위해.</p>
+                <p>기초적인 adder부터 mac, systolic array 등의 모듈들을 구현하여 설계하였다.</p>
             </div>
 
             <div class="tech-stack">
                 <div class="tech-title">사용 기술</div>
                 <div class="tech-tags">
-                    <span class="tech-tag">Verilog HDL</span>
-                    <span class="tech-tag">SystemVerilog</span>
+                    <span class="tech-tag">Verilog</span>
                     <span class="tech-tag">Xilinx Vivado</span>
-                    <span class="tech-tag">FPGA</span>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">C++</span>
                 </div>
             </div>
 

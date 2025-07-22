@@ -366,7 +366,7 @@
                 <p><strong>(Project)</strong> 프로젝트 관련 자료는 리포트 파일을 참고해 주세요.</p>
             </header>
 
-            <section class="section" id="cv">
+            <section class="section collapsed" id="cv">
                 <div class="section-header" onclick="toggleSection('cv')">
                     <h2 class="section-title">
                         <i data-lucide="user"></i>
@@ -407,7 +407,7 @@
                 </div>
             </section>
 
-            <section class="section" id="study">
+            <section class="section collapsed" id="study">
                 <div class="section-header" onclick="toggleSection('study')">
                     <h2 class="section-title">
                         <i data-lucide="notebook-tabs"></i>
@@ -477,7 +477,7 @@
                 </div>
             </section>
 
-            <section class="section" id="project">
+            <section class="section collapsed" id="project">
                 <div class="section-header" onclick="toggleSection('project')">
                     <h2 class="section-title">
                         <i data-lucide="rocket"></i>
@@ -561,9 +561,9 @@
             document.querySelector(`a[href="#${sectionId}"]`).classList.add('active');
         }
 
-        // 초기 상태에서 모든 섹션 펼쳐놓기
+        // 초기 상태에서 모든 섹션 닫힌 상태로 시작
         document.addEventListener('DOMContentLoaded', function() {
-            // 모든 섹션이 기본적으로 펼쳐진 상태로 시작
+            // 모든 섹션이 기본적으로 닫힌 상태(collapsed)로 시작
         });
     </script>
 </body>

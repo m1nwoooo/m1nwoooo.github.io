@@ -18,6 +18,7 @@
             --accent-color: #007bff;
             --border-color: #dee2e6;
             --shadow-color: rgba(0, 0, 0, 0.05);
+            --hover-bg: #f8f9fa;
         }
 
         * {
@@ -127,7 +128,7 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
-        .sidebar-menu a:hover {
+        .sidebar-menu a:hover, .sidebar-menu a.active {
             background-color: var(--accent-color);
             color: #fff;
         }
@@ -138,7 +139,7 @@
         }
 
         .welcome {
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             padding-left: 20px;
             border-left: 3px solid var(--accent-color);
         }
@@ -153,54 +154,94 @@
         .welcome p {
             font-size: 16px;
             color: var(--text-secondary);
-        }
-
-        .sections-container {
-            display: flex;
-            gap: 40px;
-            align-items: flex-start;
+            margin-bottom: 4px;
         }
 
         .section {
-            flex: 1;
+            margin-bottom: 40px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .section-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background-color 0.3s ease;
+        }
+
+        .section-header:hover {
+            background-color: var(--hover-bg);
         }
 
         .section-title {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 600;
             color: var(--text-primary);
-            margin-bottom: 24px;
             display: flex;
             align-items: center;
             gap: 12px;
         }
 
-        .card-container {
+        .toggle-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .section.collapsed .toggle-icon {
+            transform: rotate(-90deg);
+        }
+
+        .section-content {
+            padding: 24px;
+            max-height: 1000px;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .section.collapsed .section-content {
+            max-height: 0;
+            padding: 0 24px;
+        }
+
+        .card-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
         }
 
         .card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 20px;
+            border-radius: 8px;
+            padding: 16px;
             text-decoration: none;
             color: var(--text-primary);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 12px;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 24px var(--shadow-color);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px var(--shadow-color);
         }
 
         .card-icon {
             flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-color);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
         }
         
         .card-content h3 {
@@ -212,6 +253,48 @@
         .card-content p {
             font-size: 12px;
             color: var(--text-secondary);
+        }
+
+        .cv-item {
+            background-color: var(--hover-bg);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .cv-item h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .cv-item .period {
+            font-size: 14px;
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .cv-item .description {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .skill-tag {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
         }
 
         @media (max-width: 1200px) {
@@ -228,20 +311,16 @@
             .main-content {
                 padding: 40px;
             }
-            .sections-container {
-                flex-direction: column;
-            }
         }
+        
         @media (max-width: 768px) {
             .main-content {
-                padding: 30px;
+                padding: 20px;
             }
-            .sections-container {
-                flex-direction: column;
-                gap: 30px;
+            .card-grid {
+                grid-template-columns: 1fr;
             }
         }
-
     </style>
 </head>
 <body>
@@ -261,18 +340,18 @@
                     <i data-lucide="mail"></i>
                     <a href="mailto:pellyyr3@konkuk.ac.kr">pellyyr3@konkuk.ac.kr</a>
                 </div>
-                <div class="profile-info-item">
-                    <i data-lucide="instagram"></i>
-                    <a href="https://www.instagram.com/m1nwoooo" target="_blank">@m1nwoooo</a>
-                </div>
             </div>
 
             <nav class="sidebar-menu">
-                <a href="#study">
+                <a href="#cv" onclick="scrollToSection('cv')">
+                    <i data-lucide="user"></i>
+                    <span>CV</span>
+                </a>
+                <a href="#study" onclick="scrollToSection('study')">
                     <i data-lucide="book-open"></i>
                     <span>Study</span>
                 </a>
-                <a href="#project">
+                <a href="#project" onclick="scrollToSection('project')">
                     <i data-lucide="lightbulb"></i>
                     <span>Project</span>
                 </a>
@@ -282,90 +361,210 @@
         <main class="main-content">
             <header class="welcome">
                 <h1>Welcome To My Personal Page :)</h1>
-                <p>(Study)   The notion page is something I organized myself based on class content.</p>
-                <p>(Project) Please refer to the report file.</p>
+                <p><strong>(CV)</strong> 학력, 경력, 기술 스택 등 이력서 정보입니다.</p>
+                <p><strong>(Study)</strong> 수업 내용을 바탕으로 개인적으로 정리한 Notion 페이지입니다.</p>
+                <p><strong>(Project)</strong> 프로젝트 관련 자료는 리포트 파일을 참고해 주세요.</p>
             </header>
 
-            <div class="sections-container">
-                <section class="section" id="study">
-                    <h2 class="section-title"><i data-lucide="notebook-tabs"></i>Study</h2>
-                    <div class="card-container">
+            <section class="section" id="cv">
+                <div class="section-header" onclick="toggleSection('cv')">
+                    <h2 class="section-title">
+                        <i data-lucide="user"></i>
+                        Curriculum Vitae
+                    </h2>
+                    <i data-lucide="chevron-down" class="toggle-icon"></i>
+                </div>
+                <div class="section-content">
+                    <div class="cv-item">
+                        <h4>교육</h4>
+                        <div class="period">2020.03 - 현재</div>
+                        <div class="description">건국대학교 전기전자공학과 재학</div>
+                    </div>
+                    
+                    <div class="cv-item">
+                        <h4>기술 스택</h4>
+                        <div class="description">전공 분야에서 활용하는 주요 기술들</div>
+                        <div class="skills-container">
+                            <span class="skill-tag">C/C++</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">RISC-V</span>
+                            <span class="skill-tag">FPGA</span>
+                            <span class="skill-tag">Digital Circuit Design</span>
+                            <span class="skill-tag">Neural Networks</span>
+                            <span class="skill-tag">Hardware Acceleration</span>
+                        </div>
+                    </div>
+
+                    <div class="cv-item">
+                        <h4>관심 분야</h4>
+                        <div class="description">
+                            • AI 가속기 설계 및 최적화<br>
+                            • 임베디드 시스템 개발<br>
+                            • 디지털 신호 처리<br>
+                            • 컴퓨터 아키텍처
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="study">
+                <div class="section-header" onclick="toggleSection('study')">
+                    <h2 class="section-title">
+                        <i data-lucide="notebook-tabs"></i>
+                        Study
+                    </h2>
+                    <i data-lucide="chevron-down" class="toggle-icon"></i>
+                </div>
+                <div class="section-content">
+                    <div class="card-grid">
                         <a href="https://sun-purpose-c0c.notion.site/AI-1d04f27643138045be59d4536503d390?source=copy_link" target="_blank" class="card">
                             <div class="card-icon"><i data-lucide="brain-circuit"></i></div>
-                            <div class="card-content"><h3>AI Accelerator Design</h3></div>
+                            <div class="card-content">
+                                <h3>AI Accelerator Design</h3>
+                                <p>AI 가속기 설계 관련 학습</p>
+                            </div>
                         </a>
                         <a href="https://sun-purpose-c0c.notion.site/1ad4f2764313807c9d7dd08e55221ca4?source=copy_link" target="_blank" class="card">
                             <div class="card-icon"><i data-lucide="memory-stick"></i></div>
-                            <div class="card-content"><h3>Microprocessor Application</h3></div>
+                            <div class="card-content">
+                                <h3>Microprocessor Application</h3>
+                                <p>마이크로프로세서 응용</p>
+                            </div>
                         </a>
                         <a href="https://sun-purpose-c0c.notion.site/793c466d4aa6479f882f0d48447406df?source=copy_link" target="_blank" class="card">
                             <div class="card-icon"><i data-lucide="computer"></i></div>
-                            <div class="card-content"><h3>Computer Architecture</h3></div>
+                            <div class="card-content">
+                                <h3>Computer Architecture</h3>
+                                <p>컴퓨터 구조론</p>
+                            </div>
                         </a>
-                    
                         <a href="https://sun-purpose-c0c.notion.site/9790f1ab12eb4c38926583c922dd805f?source=copy_link" target="_blank" class="card">
                             <div class="card-icon"><i data-lucide="cpu"></i></div>
-                            <div class="card-content"><h3>Logic Circuits</h3></div>
-                        </a>                        
+                            <div class="card-content">
+                                <h3>Logic Circuits</h3>
+                                <p>논리회로 설계</p>
+                            </div>
+                        </a>
                         <a href="https://sun-purpose-c0c.notion.site/C-c0dc7bc35e174d38be564873ffd9d9ad?source=copy_link" target="_blank" class="card">
                             <div class="card-icon"><i data-lucide="code"></i></div>
-                            <div class="card-content"><h3>C Programming</h3></div>
+                            <div class="card-content">
+                                <h3>C Programming</h3>
+                                <p>C 프로그래밍 기초</p>
+                            </div>
                         </a>
                         <a href="https://sun-purpose-c0c.notion.site/C-ecb580a755d04575b0516e92358db78e?source=copy_link" target="_blank" class="card">
                             <div class="card-icon"><i data-lucide="code-2"></i></div>
-                            <div class="card-content"><h3>C++ Programming</h3></div>
+                            <div class="card-content">
+                                <h3>C++ Programming</h3>
+                                <p>C++ 프로그래밍</p>
+                            </div>
                         </a>
                         <a href="https://sun-purpose-c0c.notion.site/1-2efff2ce0b8446c982723cb0864208bf?source=copy_link" target="_blank" class="card">
                             <div class="card-icon"><i data-lucide="circuit-board"></i></div>
-                            <div class="card-content"><h3>Electronic Circuit 1</h3></div>
+                            <div class="card-content">
+                                <h3>Electronic Circuit 1</h3>
+                                <p>전자회로 1</p>
+                            </div>
                         </a>
-                         <a href="https://sun-purpose-c0c.notion.site/2-1ad4f2764313806ca6afd10427516199?source=copy_link" target="_blank" class="card">
+                        <a href="https://sun-purpose-c0c.notion.site/2-1ad4f2764313806ca6afd10427516199?source=copy_link" target="_blank" class="card">
                             <div class="card-icon"><i data-lucide="circuit-board"></i></div>
-                            <div class="card-content"><h3>Electronic Circuit 2</h3></div>
+                            <div class="card-content">
+                                <h3>Electronic Circuit 2</h3>
+                                <p>전자회로 2</p>
+                            </div>
                         </a>
                     </div>
-                </section>
+                </div>
+            </section>
 
-                <section class="section" id="project">
-                    <h2 class="section-title"><i data-lucide="rocket"></i>Project</h2>
-                    <div class="card-container">
+            <section class="section" id="project">
+                <div class="section-header" onclick="toggleSection('project')">
+                    <h2 class="section-title">
+                        <i data-lucide="rocket"></i>
+                        Project
+                    </h2>
+                    <i data-lucide="chevron-down" class="toggle-icon"></i>
+                </div>
+                <div class="section-content">
+                    <div class="card-grid">
                         <a href="project-tnn-accelerator.html" class="card">
                             <div class="card-icon"><i data-lucide="zap"></i></div>
-                            <div class="card-content"><h3>Hardware Accelerator for Tiny Neural Networks</h3></div>
+                            <div class="card-content">
+                                <h3>Hardware Accelerator for Tiny Neural Networks</h3>
+                                <p>소형 신경망을 위한 하드웨어 가속기</p>
+                            </div>
                         </a>
                         <a href="project-fft-riscv.html" class="card">
                             <div class="card-icon"><i data-lucide="gauge-circle"></i></div>
-                            <div class="card-content"><h3>64pt FFT Accelerator with RISC-V</h3></div>
+                            <div class="card-content">
+                                <h3>64pt FFT Accelerator with RISC-V</h3>
+                                <p>RISC-V 기반 FFT 가속기</p>
+                            </div>
                         </a>
                         <a href="project-fft-zynq.html" class="card">
                             <div class="card-icon"><i data-lucide="bar-chart-big"></i></div>
-                            <div class="card-content"><h3>128-point FFT on Xilinx Zynq-7000</h3></div>
+                            <div class="card-content">
+                                <h3>128-point FFT on Xilinx Zynq-7000</h3>
+                                <p>Zynq 플랫폼 FFT 구현</p>
+                            </div>
                         </a>
-                        
                         <a href="project-helmet-system.html" class="card">
                             <div class="card-icon"><i data-lucide="hard-hat"></i></div>
-                            <div class="card-content"><h3>Helmet-Mounted System</h3></div>
+                            <div class="card-content">
+                                <h3>Helmet-Mounted System</h3>
+                                <p>헬멧 장착형 시스템</p>
+                            </div>
                         </a>
                         <a href="deep-learning.html" class="card">
                             <div class="card-icon"><i data-lucide="layers"></i></div>
-                            <div class="card-content"><h3>Deep Learning</h3></div>
+                            <div class="card-content">
+                                <h3>Deep Learning</h3>
+                                <p>딥러닝 프로젝트</p>
+                            </div>
                         </a>
                         <a href="project-tictactoe.html" class="card">
                             <div class="card-icon"><i data-lucide="gamepad-2"></i></div>
-                            <div class="card-content"><h3>Tic-Tac-Toe Game with Arduino & Python</h3></div>
+                            <div class="card-content">
+                                <h3>Tic-Tac-Toe Game with Arduino & Python</h3>
+                                <p>아두이노와 Python을 이용한 게임</p>
+                            </div>
                         </a>
                         <a href="https://github.com/m1nwoooo" target="_blank" class="card">
                             <div class="card-icon"><i data-lucide="github"></i></div>
-                            <div class="card-content"><h3>GitHub Repositories</h3></div>
+                            <div class="card-content">
+                                <h3>GitHub Repositories</h3>
+                                <p>GitHub 저장소 모음</p>
+                            </div>
                         </a>
                     </div>
-                </section>
-            </div>
+                </div>
+            </section>
         </main>
     </div>
 
     <script>
         lucide.createIcons();
+
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.classList.toggle('collapsed');
+        }
+
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.scrollIntoView({ behavior: 'smooth' });
+            
+            // 메뉴 활성화
+            document.querySelectorAll('.sidebar-menu a').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelector(`a[href="#${sectionId}"]`).classList.add('active');
+        }
+
+        // 초기 상태에서 모든 섹션 펼쳐놓기
+        document.addEventListener('DOMContentLoaded', function() {
+            // 모든 섹션이 기본적으로 펼쳐진 상태로 시작
+        });
     </script>
 </body>
 </html>

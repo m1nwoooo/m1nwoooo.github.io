@@ -343,9 +343,9 @@
             </div>
 
             <nav class="sidebar-menu">
-                <a href="#cv" onclick="scrollToSection('cv')">
+                <a href="#about" onclick="scrollToSection('about')">
                     <i data-lucide="user"></i>
-                    <span>CV</span>
+                    <span>About Me</span>
                 </a>
                 <a href="#study" onclick="scrollToSection('study')">
                     <i data-lucide="book-open"></i>
@@ -361,47 +361,71 @@
         <main class="main-content">
             <header class="welcome">
                 <h1>Welcome To My Personal Page :)</h1>
-                <p><strong>(CV)</strong> 학력, 경력, 기술 스택 등 이력서 정보입니다.</p>
+                <p><strong>(About Me)</strong> 학문적 배경과 연구 관심 분야, 연구실 지원 동기에 대한 소개입니다.</p>
                 <p><strong>(Study)</strong> 수업 내용을 바탕으로 개인적으로 정리한 Notion 페이지입니다.</p>
                 <p><strong>(Project)</strong> 프로젝트 관련 자료는 리포트 파일을 참고해 주세요.</p>
             </header>
 
-            <section class="section collapsed" id="cv">
-                <div class="section-header" onclick="toggleSection('cv')">
+            <section class="section collapsed" id="about">
+                <div class="section-header" onclick="toggleSection('about')">
                     <h2 class="section-title">
                         <i data-lucide="user"></i>
-                        Curriculum Vitae
+                        About Me
                     </h2>
                     <i data-lucide="chevron-down" class="toggle-icon"></i>
                 </div>
                 <div class="section-content">
                     <div class="cv-item">
-                        <h4>교육</h4>
-                        <div class="period">2020.03 - 현재</div>
-                        <div class="description">건국대학교 전기전자공학과 재학</div>
+                        <h4>학문적 배경 및 자기소개</h4>
+                        <div class="description">
+                            안녕하세요. 건국대학교 전기전자공학과에 재학 중인 조민우입니다. 하드웨어와 소프트웨어의 경계에서 효율적인 시스템을 설계하는 것에 큰 흥미를 느끼며, 특히 AI 기술이 하드웨어 레벨에서 어떻게 최적화될 수 있는지에 대해 깊이 탐구하고 있습니다. 
+                            <br><br>
+                            전기전자공학 전공을 통해 디지털 회로 설계, 컴퓨터 아키텍처, 마이크로프로세서 등의 하드웨어 기초 지식을 쌓았으며, C/C++, Python 등의 프로그래밍 언어를 활용한 시스템 개발 경험을 보유하고 있습니다.
+                        </div>
                     </div>
                     
                     <div class="cv-item">
-                        <h4>기술 스택</h4>
-                        <div class="description">전공 분야에서 활용하는 주요 기술들</div>
+                        <h4>관심 연구 주제</h4>
+                        <div class="description">
+                            <strong>🚀 딥러닝 가속기 설계</strong><br>
+                            신경망 연산을 효율적으로 처리할 수 있는 전용 하드웨어 가속기 설계에 관심이 있습니다. 특히 Tiny Neural Network를 위한 저전력, 고효율 가속기 개발을 통해 엣지 디바이스에서의 AI 추론 성능을 향상시키는 연구를 진행해왔습니다.
+                            <br><br>
+                            <strong>⚡ 저전력 SoC (System on Chip)</strong><br>
+                            IoT 및 모바일 환경에서 요구되는 저전력 SoC 설계 및 최적화에 대해 연구하고 있습니다. 전력 효율성과 성능 간의 균형을 맞추는 아키텍처 설계에 특별한 관심을 가지고 있습니다.
+                            <br><br>
+                            <strong>🔧 임베디드 시스템</strong><br>
+                            RISC-V 기반 프로세서와 FPGA를 활용한 실시간 시스템 개발, 디지털 신호 처리(DSP) 하드웨어 구현 등 임베디드 시스템 전반에 걸친 연구를 수행하고 있습니다.
+                        </div>
+                    </div>
+
+                    <div class="cv-item">
+                        <h4>연구실 지원 동기 및 연구 계획</h4>
+                        <div class="description">
+                            현재 AI 기술의 급속한 발전과 함께 하드웨어 가속의 중요성이 더욱 커지고 있습니다. 특히 엣지 컴퓨팅 환경에서는 제한된 전력과 면적 내에서 최대의 성능을 끌어내는 것이 핵심 과제입니다.
+                            <br><br>
+                            <strong>연구 목표:</strong><br>
+                            • 차세대 AI 가속기 아키텍처 설계 및 검증<br>
+                            • 저전력 신경망 추론을 위한 하드웨어-소프트웨어 협업 최적화<br>
+                            • RISC-V 기반 커스텀 프로세서 설계를 통한 도메인 특화 가속기 개발<br>
+                            • 실제 응용 분야(자율주행, IoT, 헬스케어)에 적용 가능한 실용적 솔루션 제공
+                            <br><br>
+                            궁극적으로는 학계와 산업계에서 실제로 활용될 수 있는 혁신적인 하드웨어 솔루션을 개발하여, AI 기술의 대중화와 접근성 향상에 기여하고 싶습니다.
+                        </div>
+                    </div>
+
+                    <div class="cv-item">
+                        <h4>핵심 역량</h4>
+                        <div class="description">하드웨어 설계 및 시스템 개발에 필요한 기술 스택</div>
                         <div class="skills-container">
                             <span class="skill-tag">C/C++</span>
                             <span class="skill-tag">Python</span>
                             <span class="skill-tag">RISC-V</span>
                             <span class="skill-tag">FPGA</span>
+                            <span class="skill-tag">Verilog/SystemVerilog</span>
                             <span class="skill-tag">Digital Circuit Design</span>
                             <span class="skill-tag">Neural Networks</span>
                             <span class="skill-tag">Hardware Acceleration</span>
-                        </div>
-                    </div>
-
-                    <div class="cv-item">
-                        <h4>관심 분야</h4>
-                        <div class="description">
-                            • AI 가속기 설계 및 최적화<br>
-                            • 임베디드 시스템 개발<br>
-                            • 디지털 신호 처리<br>
-                            • 컴퓨터 아키텍처
+                            <span class="skill-tag">Embedded Systems</span>
                         </div>
                     </div>
                 </div>

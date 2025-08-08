@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head> 
-    <meta charset="UTF-8"> 
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>m1nwoooo</title>
+    <title>m1nwoooo - Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -18,7 +18,7 @@
             --accent-color: #007bff;
             --border-color: #dee2e6;
             --shadow-color: rgba(0, 0, 0, 0.05);
-            --hover-bg: #f8f9fa;
+            --hover-bg: #f1f3f5;
         }
 
         * {
@@ -168,14 +168,17 @@
         .section-header {
             padding: 20px 24px;
             border-bottom: 1px solid var(--border-color);
-            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: space-between;
             transition: background-color 0.3s ease;
         }
+        
+        .section-header.collapsible {
+            cursor: pointer;
+        }
 
-        .section-header:hover {
+        .section-header.collapsible:hover {
             background-color: var(--hover-bg);
         }
 
@@ -198,9 +201,9 @@
 
         .section-content {
             padding: 24px;
-            max-height: 1000px;
+            max-height: 1000px; /* Adjust as needed */
             overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
         }
 
         .section.collapsed .section-content {
@@ -218,40 +221,25 @@
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 16px;
+            padding: 20px;
             text-decoration: none;
             color: var(--text-primary);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            display: flex;
-            align-items: center;
-            gap: 12px;
         }
 
         .card:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 16px var(--shadow-color);
         }
-
-        .card-icon {
-            flex-shrink: 0;
-            width: 40px;
-            height: 40px;
-            background-color: var(--accent-color);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-        }
         
         .card-content h3 {
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 600;
             margin-bottom: 4px;
         }
         
         .card-content p {
-            font-size: 12px;
+            font-size: 14px;
             color: var(--text-secondary);
         }
 
@@ -260,6 +248,10 @@
             border-radius: 8px;
             padding: 16px;
             margin-bottom: 16px;
+        }
+        
+        .cv-item:last-child {
+            margin-bottom: 0;
         }
 
         .cv-item h4 {
@@ -343,16 +335,16 @@
             </div>
 
             <nav class="sidebar-menu">
-                <a href="#about" onclick="scrollToSection('about')">
+                <a href="#about" onclick="scrollToSection('about', event)">
                     <i data-lucide="user"></i>
                     <span>About Me</span>
                 </a>
                 
-                <a href="#project" onclick="scrollToSection('project')">
+                <a href="#project" onclick="scrollToSection('project', event)">
                     <i data-lucide="lightbulb"></i>
                     <span>Project</span>
                 </a>
-                <a href="#study" onclick="scrollToSection('study')">
+                <a href="#study" onclick="scrollToSection('study', event)">
                     <i data-lucide="book-open"></i>
                     <span>Study</span>
                 </a>
@@ -367,8 +359,9 @@
                 <p><strong>(Study)</strong> 수업 내용을 바탕으로 개인적으로 정리한 Notion 페이지입니다.</p>
             </header>
 
+            <!-- About Me Section (Collapsible) -->
             <section class="section collapsed" id="about">
-                <div class="section-header" onclick="toggleSection('about')">
+                <div class="section-header collapsible" onclick="toggleSection('about')">
                     <h2 class="section-title">
                         <i data-lucide="user"></i>
                         About Me
@@ -432,69 +425,59 @@
                 </div>
             </section>
 
-            
-
-            <section class="section collapsed" id="project">
-                <div class="section-header" onclick="toggleSection('project')">
+            <!-- Project Section (Always Visible) -->
+            <section class="section" id="project">
+                <div class="section-header">
                     <h2 class="section-title">
                         <i data-lucide="rocket"></i>
                         Project
                     </h2>
-                    <i data-lucide="chevron-down" class="toggle-icon"></i>
                 </div>
                 <div class="section-content">
                     <div class="card-grid">
                         <a href="project-tnn-accelerator.html" class="card">
-                            <div class="card-icon"><i data-lucide="zap"></i></div>
                             <div class="card-content">
                                 <h3>Hardware Accelerator for Tiny Neural Networks</h3>
                                 <p>소형 신경망을 위한 하드웨어 가속기</p>
                             </div>
                         </a>
                         <a href="project-fft-riscv.html" class="card">
-                            <div class="card-icon"><i data-lucide="gauge-circle"></i></div>
                             <div class="card-content">
                                 <h3>64pt FFT Accelerator with RISC-V</h3>
                                 <p>RISC-V 기반 FFT 가속기</p>
                             </div>
                         </a>
                         <a href="project-fft-zynq.html" class="card">
-                            <div class="card-icon"><i data-lucide="bar-chart-big"></i></div>
                             <div class="card-content">
                                 <h3>128-point FFT on Xilinx Zynq-7000</h3>
                                 <p>Zynq 플랫폼 FFT 구현</p>
                             </div>
                         </a>
                         <a href="project-CUDA.html" class="card">
-                            <div class="card-icon"><i data-lucide="function-square"></i></div>
                             <div class="card-content">
                                 <h3>CUDA Programming</h3>
                                 <p>CUDA 프로그래밍 공부 및 실습</p>
                             </div>
                         </a>
                         <a href="project-helmet-system.html" class="card">
-                            <div class="card-icon"><i data-lucide="hard-hat"></i></div>
                             <div class="card-content">
                                 <h3>Helmet-Mounted System</h3>
                                 <p>캡스톤, 임베디드소프트웨어 경진대회</p>
                             </div>
                         </a>
                         <a href="deep-learning.html" class="card">
-                            <div class="card-icon"><i data-lucide="layers"></i></div>
                             <div class="card-content">
                                 <h3>Deep Learning</h3>
                                 <p>NLP, LLM 공부</p>
                             </div>
                         </a>
                         <a href="project-tictactoe.html" class="card">
-                            <div class="card-icon"><i data-lucide="gamepad-2"></i></div>
                             <div class="card-content">
                                 <h3>Tic-Tac-Toe Game with Arduino & Python</h3>
                                 <p>아두이노와 Python을 이용한 게임</p>
                             </div>
                         </a>
                         <a href="https://github.com/m1nwoooo" target="_blank" class="card">
-                            <div class="card-icon"><i data-lucide="github"></i></div>
                             <div class="card-content">
                                 <h3>GitHub Repositories</h3>
                                 <p>GitHub 저장소 모음</p>
@@ -504,53 +487,47 @@
                 </div>
             </section>
 
-            <section class="section collapsed" id="study">
-                <div class="section-header" onclick="toggleSection('study')">
+            <!-- Study Section (Always Visible) -->
+            <section class="section" id="study">
+                <div class="section-header">
                     <h2 class="section-title">
                         <i data-lucide="notebook-tabs"></i>
                         Study
                     </h2>
-                    <i data-lucide="chevron-down" class="toggle-icon"></i>
                 </div>
                 <div class="section-content">
                     <div class="card-grid">
                         <a href="https://sun-purpose-c0c.notion.site/AI-1d04f27643138045be59d4536503d390?source=copy_link" target="_blank" class="card">
-                            <div class="card-icon"><i data-lucide="brain-circuit"></i></div>
                             <div class="card-content">
                                 <h3>AI Accelerator Design</h3>
                                 <p>AI 가속기 설계 관련 학습</p>
                             </div>
                         </a>
                         <a href="https://sun-purpose-c0c.notion.site/1ad4f2764313807c9d7dd08e55221ca4?source=copy_link" target="_blank" class="card">
-                            <div class="card-icon"><i data-lucide="memory-stick"></i></div>
                             <div class="card-content">
                                 <h3>Microprocessor Application</h3>
                                 <p>마이크로프로세서 응용</p>
                             </div>
                         </a>
                         <a href="https://sun-purpose-c0c.notion.site/793c466d4aa6479f882f0d48447406df?source=copy_link" target="_blank" class="card">
-                            <div class="card-icon"><i data-lucide="computer"></i></div>
                             <div class="card-content">
                                 <h3>Computer Architecture</h3>
                                 <p>컴퓨터 구조론</p>
                             </div>
                         </a>
                         <a href="https://sun-purpose-c0c.notion.site/9790f1ab12eb4c38926583c922dd805f?source=copy_link" target="_blank" class="card">
-                            <div class="card-icon"><i data-lucide="cpu"></i></div>
                             <div class="card-content">
                                 <h3>Logic Circuits</h3>
                                 <p>논리회로 설계</p>
                             </div>
                         </a>
                         <a href="https://sun-purpose-c0c.notion.site/1-2efff2ce0b8446c982723cb0864208bf?source=copy_link" target="_blank" class="card">
-                            <div class="card-icon"><i data-lucide="circuit-board"></i></div>
                             <div class="card-content">
                                 <h3>Electronic Circuit 1</h3>
                                 <p>전자회로 1</p>
                             </div>
                         </a>
                         <a href="https://sun-purpose-c0c.notion.site/2-1ad4f2764313806ca6afd10427516199?source=copy_link" target="_blank" class="card">
-                            <div class="card-icon"><i data-lucide="circuit-board"></i></div>
                             <div class="card-content">
                                 <h3>Electronic Circuit 2</h3>
                                 <p>전자회로 2</p>
@@ -565,25 +542,60 @@
     <script>
         lucide.createIcons();
 
+        // Function to toggle the collapsible section
         function toggleSection(sectionId) {
             const section = document.getElementById(sectionId);
-            section.classList.toggle('collapsed');
+            if (section) {
+                section.classList.toggle('collapsed');
+            }
         }
 
-        function scrollToSection(sectionId) {
+        // Function to handle smooth scrolling and active menu state
+        function scrollToSection(sectionId, event) {
+            event.preventDefault(); // Prevent default anchor behavior
             const section = document.getElementById(sectionId);
-            section.scrollIntoView({ behavior: 'smooth' });
-            
-            // 메뉴 활성화
-            document.querySelectorAll('.sidebar-menu a').forEach(link => {
-                link.classList.remove('active');
-            });
-            document.querySelector(`a[href="#${sectionId}"]`).classList.add('active');
+            if (section) {
+                // Smoothly scroll to the section
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                // Update active class on sidebar menu
+                document.querySelectorAll('.sidebar-menu a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                document.querySelector(`.sidebar-menu a[href="#${sectionId}"]`).classList.add('active');
+            }
         }
 
-        // 초기 상태에서 모든 섹션 닫힌 상태로 시작
+        // Set the active menu item based on scroll position
         document.addEventListener('DOMContentLoaded', function() {
-            // 모든 섹션이 기본적으로 닫힌 상태(collapsed)로 시작
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.sidebar-menu a');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { threshold: 0.4 }); // Adjust threshold as needed
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Set initial active state for the first visible section
+             if (window.location.hash) {
+                const initialLink = document.querySelector(`.sidebar-menu a[href="${window.location.hash}"]`);
+                if(initialLink) initialLink.classList.add('active');
+            } else {
+                 const firstLink = document.querySelector('.sidebar-menu a');
+                 if(firstLink) firstLink.classList.add('active');
+            }
         });
     </script>
 </body>

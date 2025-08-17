@@ -216,6 +216,22 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 16px;
         }
+        
+        .project-category {
+            margin-bottom: 24px;
+        }
+
+        .project-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .category-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
 
         .card {
             background-color: var(--card-bg);
@@ -359,7 +375,6 @@
                 <p><strong>(Study)</strong> 수업 내용을 바탕으로 개인적으로 정리한 Notion 페이지입니다.</p>
             </header>
 
-            <!-- About Me Section (Collapsible) -->
             <section class="section collapsed" id="about">
                 <div class="section-header collapsible" onclick="toggleSection('about')">
                     <h2 class="section-title">
@@ -411,10 +426,7 @@
                             궁극적으로는 학계와 산업계에서 실제로 활용될 수 있는 혁신적인 하드웨어 솔루션을 개발하여, AI 기술의 대중화와 접근성 향상에 기여하고 싶습니다.
                         </div>
                     </div>
-
-            
-<!-- Project Section (Always Visible) -->
-            <section class="section" id="project">
+                </div> </section> <section class="section" id="project">
                 <div class="section-header">
                     <h2 class="section-title">
                         <i data-lucide="rocket"></i>
@@ -422,7 +434,6 @@
                     </h2>
                 </div>
                 <div class="section-content">
-                    <!-- Github Projects -->
                     <div class="project-category">
                         <h3 class="category-title">Github:</h3>
                         <div class="card-grid">
@@ -454,7 +465,6 @@
                         </div>
                     </div>
 
-                    <!-- Report Projects -->
                     <div class="project-category">
                         <h3 class="category-title">Report:</h3>
                         <div class="card-grid">
@@ -474,7 +484,6 @@
             </section>
 
             
-            <!-- Study Section (Always Visible) -->
             <section class="section" id="study">
                 <div class="section-header">
                     <h2 class="section-title">
@@ -581,15 +590,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

@@ -305,100 +305,6 @@
             font-weight: 500;
         }
 
-        /* Password Protection Styles */
-        #password-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--bg-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-
-        #password-overlay.hidden {
-            display: none;
-        }
-
-        .password-box {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 40px;
-            text-align: center;
-            box-shadow: 0 8px 24px var(--shadow-color);
-            max-width: 400px;
-            width: 90%;
-        }
-
-        .password-box h2 {
-            font-size: 24px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-        }
-
-        .password-box p {
-            font-size: 14px;
-            color: var(--text-secondary);
-            margin-bottom: 24px;
-        }
-
-        .password-input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            font-size: 16px;
-            margin-bottom: 16px;
-            font-family: inherit;
-            transition: border-color 0.3s;
-        }
-
-        .password-input:focus {
-            outline: none;
-            border-color: var(--accent-color);
-        }
-
-        .password-submit {
-            width: 100%;
-            padding: 12px;
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: opacity 0.3s;
-        }
-
-        .password-submit:hover {
-            opacity: 0.9;
-        }
-
-        .password-error {
-            color: #dc3545;
-            font-size: 14px;
-            margin-top: 12px;
-            display: none;
-        }
-
-        .password-error.show {
-            display: block;
-        }
-
-        #main-container {
-            display: none;
-        }
-
-        #main-container.unlocked {
-            display: block;
-        }
-
         @media (max-width: 1200px) {
             .container {
                 flex-direction: column;
@@ -427,25 +333,6 @@
 </head>
 <body>
 
-    <!-- Password Protection Overlay -->
-    <div id="password-overlay">
-        <div class="password-box">
-            <h2>🔒 Portfolio Access</h2>
-            <p>Please enter the password to view this portfolio</p>
-            <input 
-                type="password" 
-                id="password-input" 
-                class="password-input" 
-                placeholder="Enter password"
-                autocomplete="off"
-            >
-            <button onclick="checkPassword()" class="password-submit">Enter</button>
-            <div id="password-error" class="password-error">Incorrect password. Please try again.</div>
-        </div>
-    </div>
-
-    <!-- Main Container (hidden until password is correct) -->
-    <div id="main-container">
     <div class="container">
         <aside class="sidebar">
             <div class="profile-img"></div>
@@ -673,46 +560,8 @@
             </section>
         </main>
     </div>
-    </div>
-    <!-- End Main Container -->
 
     <script>
-        // Password Protection
-        const CORRECT_PASSWORD = 'boot4digital';
-        
-        function checkPassword() {
-            const input = document.getElementById('password-input');
-            const error = document.getElementById('password-error');
-            const overlay = document.getElementById('password-overlay');
-            const mainContainer = document.getElementById('main-container');
-            
-            if (input.value === CORRECT_PASSWORD) {
-                overlay.classList.add('hidden');
-                mainContainer.classList.add('unlocked');
-                sessionStorage.setItem('portfolio-unlocked', 'true');
-            } else {
-                error.classList.add('show');
-                input.value = '';
-                input.focus();
-                setTimeout(() => {
-                    error.classList.remove('show');
-                }, 3000);
-            }
-        }
-
-        // Allow Enter key to submit password
-        document.getElementById('password-input').addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') {
-                checkPassword();
-            }
-        });
-
-        // Check if already unlocked in this session
-        if (sessionStorage.getItem('portfolio-unlocked') === 'true') {
-            document.getElementById('password-overlay').classList.add('hidden');
-            document.getElementById('main-container').classList.add('unlocked');
-        }
-
         lucide.createIcons();
 
         // Function to toggle the collapsible section
@@ -773,3 +622,4 @@
     </script>
 </body>
 </html>
+
